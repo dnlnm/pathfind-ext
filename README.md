@@ -1,13 +1,13 @@
-# Pathfind Browser Extension
+# PathFind Browser Extension
 
-Browser extension for the Pathfind bookmark manager. This extension allows you to easily save links to your self-hosted Pathfind instance directly from your browser.
+Browser extension for the PathFind bookmark manager. This extension allows you to easily save links to your self-hosted PathFind instance directly from your browser.
 
 ## Features
 
-- **Quick Save (Popup)**: Click the extension icon to quickly save the current tab to your Pathfind instance.
-- **Context Menu Integration**: Right-click on any page or link and use the "Save to Pathfind" option to save it immediately.
-- **Bookmark Status Indicator**: Displays a visual badge (✓) on the extension icon whenever you visit a URL that is already saved in your Pathfind instance.
-- **Custom Configuration**: Setup your custom Pathfind Server URL and API Token for seamless integration with your self-hosted instance.
+- **Quick Save (Popup)**: Click the extension icon to quickly save the current tab to your PathFind instance.
+- **Context Menu Integration**: Right-click on any page or link and use the "Save to PathFind" option to save it immediately.
+- **Bookmark Status Indicator**: Displays a visual badge (✓) on the extension icon whenever you visit a URL that is already saved in your PathFind instance.
+- **Custom Configuration**: Setup your custom PathFind Server URL and API Token for seamless integration with your self-hosted instance.
 
 ## Tech Stack
 

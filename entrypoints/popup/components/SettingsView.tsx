@@ -58,7 +58,7 @@ export function SettingsView({ onConnected, initialUrl = '', initialToken = '' }
                     </svg>
                 </div>
                 <div>
-                    <h1 className="text-base font-semibold">Pathfind</h1>
+                    <h1 className="text-base font-semibold">PathFind</h1>
                     <p className="text-xs text-muted-foreground">Connect to your instance</p>
                 </div>
             </div>
@@ -94,7 +94,7 @@ export function SettingsView({ onConnected, initialUrl = '', initialToken = '' }
                         disabled={loading}
                     />
                     <p className="text-[11px] text-muted-foreground">
-                        Generate a token in Pathfind → Settings → API Tokens
+                        Generate a token in PathFind → Settings → API Tokens
                     </p>
                 </div>
 

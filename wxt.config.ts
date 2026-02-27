@@ -4,8 +4,8 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: 'Pathfind',
-    description: 'Save bookmarks to your self-hosted Pathfind instance',
+    name: 'PathFind',
+    description: 'Save bookmarks to your self-hosted PathFind instance',
     permissions: ['activeTab', 'contextMenus', 'storage'],
     host_permissions: ['<all_urls>'],
   },

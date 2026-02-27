@@ -1,6 +1,6 @@
 {
   "name": "pathfind-ext",
-  "description": "Browser extension for Pathfind bookmark manager",
+  "description": "Browser extension for PathFind bookmark manager",
   "private": true,
   "version": "0.1.0",
   "type": "module",

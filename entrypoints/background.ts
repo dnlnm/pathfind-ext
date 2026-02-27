@@ -57,10 +57,10 @@ export default defineBackground(() => {
     }
   });
 
-  // Context menu: "Save to Pathfind"
+  // Context menu: "Save to PathFind"
   browser.contextMenus.create({
     id: 'save-to-pathfind',
-    title: 'Save to Pathfind',
+    title: 'Save to PathFind',
     contexts: ['page', 'link'],
   });
 
