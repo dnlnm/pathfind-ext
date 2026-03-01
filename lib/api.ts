@@ -57,6 +57,7 @@ export interface SaveBookmarkPayload {
     tags?: string[];
     collections?: string[];
     isReadLater?: boolean;
+    isNsfw?: boolean;
 }
 
 export async function saveBookmark(payload: SaveBookmarkPayload) {

@@ -25,6 +25,7 @@ import {
     Check,
     Plus,
     ChevronDown,
+    EyeOff,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -38,6 +39,7 @@ export function SaveBookmarkView({ onOpenSettings }: SaveBookmarkViewProps) {
     const [notes, setNotes] = useState('');
     const [notesOpen, setNotesOpen] = useState(false);
     const [isReadLater, setIsReadLater] = useState(false);
+    const [isNsfw, setIsNsfw] = useState(false);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const [selectedCollections, setSelectedCollections] = useState<string[]>([]);
 
@@ -100,6 +102,7 @@ export function SaveBookmarkView({ onOpenSettings }: SaveBookmarkViewProps) {
                 tags: selectedTags.length > 0 ? selectedTags : undefined,
                 collections: selectedCollections.length > 0 ? selectedCollections : undefined,
                 isReadLater,
+                isNsfw,
             });
             setSaved(true);
             setAlreadySaved(true);
@@ -472,7 +475,7 @@ export function SaveBookmarkView({ onOpenSettings }: SaveBookmarkViewProps) {
 
                 {/* Read Later */}
                 <div className="flex items-center justify-between py-1">
-                    <Label htmlFor="read-later" className="text-xs cursor-pointer">
+                    <Label htmlFor="read-later" className="text-xs cursor-pointer flex items-center gap-1">
                         Read Later
                     </Label>
                     <Switch
@@ -480,6 +483,20 @@ export function SaveBookmarkView({ onOpenSettings }: SaveBookmarkViewProps) {
                         size="sm"
                         checked={isReadLater}
                         onCheckedChange={setIsReadLater}
+                    />
+                </div>
+
+                {/* NSFW */}
+                <div className="flex items-center justify-between py-1">
+                    <Label htmlFor="nsfw" className="text-xs cursor-pointer flex items-center gap-1">
+                        <EyeOff className="size-3" />
+                        Mark as Sensitive
+                    </Label>
+                    <Switch
+                        id="nsfw"
+                        size="sm"
+                        checked={isNsfw}
+                        onCheckedChange={setIsNsfw}
                     />
                 </div>
 
