@@ -95,6 +95,37 @@ export async function getTags(): Promise<Tag[]> {
     return apiFetch<Tag[]>('/api/tags');
 }
 
+// --- Search ---
+
+export interface BookmarkResult {
+    id: string;
+    url: string;
+    title: string | null;
+    description: string | null;
+    favicon: string | null;
+    thumbnail: string | null;
+    tags: { id: string; name: string }[];
+    collections: { id: string; name: string; color?: string | null }[];
+    createdAt: string;
+}
+
+interface BookmarksResponse {
+    bookmarks: BookmarkResult[];
+    total: number;
+    page: number;
+    totalPages: number;
+}
+
+export async function searchBookmarks(query: string, limit = 5): Promise<BookmarkResult[]> {
+    try {
+        const params = new URLSearchParams({ q: query, limit: String(limit) });
+        const data = await apiFetch<BookmarksResponse>(`/api/bookmarks?${params}`);
+        return data.bookmarks;
+    } catch {
+        return [];
+    }
+}
+
 // --- Validation ---
 
 export async function validateConnection(): Promise<boolean> {

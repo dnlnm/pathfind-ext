@@ -13,6 +13,10 @@ const apiTokenKey = storage.defineItem<string>('local:apiToken', {
     fallback: '',
 });
 
+const searchInjectorEnabledKey = storage.defineItem<boolean>('local:searchInjectorEnabled', {
+    fallback: true,
+});
+
 export async function getServerConfig(): Promise<ServerConfig> {
     const [serverUrl, apiToken] = await Promise.all([
         serverUrlKey.getValue(),
@@ -33,6 +37,14 @@ export async function clearServerConfig(): Promise<void> {
         serverUrlKey.removeValue(),
         apiTokenKey.removeValue(),
     ]);
+}
+
+export async function getSearchInjectorEnabled(): Promise<boolean> {
+    return searchInjectorEnabledKey.getValue();
+}
+
+export async function setSearchInjectorEnabled(enabled: boolean): Promise<void> {
+    await searchInjectorEnabledKey.setValue(enabled);
 }
 
 export function watchServerConfig(callback: (config: ServerConfig) => void) {

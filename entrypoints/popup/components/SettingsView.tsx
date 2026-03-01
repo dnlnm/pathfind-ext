@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { setServerConfig } from '@/lib/storage';
+import { Switch } from '@/components/ui/switch';
+import { setServerConfig, getSearchInjectorEnabled, setSearchInjectorEnabled } from '@/lib/storage';
 import { validateConnection } from '@/lib/api';
-import { Loader2, Server, Key, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Loader2, Server, Key, CheckCircle2, AlertCircle, Search } from 'lucide-react';
 
 interface SettingsViewProps {
     onConnected: () => void;
@@ -18,6 +19,11 @@ export function SettingsView({ onConnected, initialUrl = '', initialToken = '' }
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
+    const [searchInjector, setSearchInjector] = useState(true);
+
+    useEffect(() => {
+        getSearchInjectorEnabled().then(setSearchInjector);
+    }, []);
 
     const handleConnect = async () => {
         if (!serverUrl || !apiToken) {
@@ -126,6 +132,28 @@ export function SettingsView({ onConnected, initialUrl = '', initialToken = '' }
                         'Connect'
                     )}
                 </Button>
+
+                {/* Search Injection Toggle */}
+                <div className="border-t border-border/40 pt-4 mt-2">
+                    <div className="flex items-center justify-between">
+                        <Label htmlFor="search-injector" className="text-xs cursor-pointer flex items-center gap-1.5">
+                            <Search className="size-3.5" />
+                            Search Injection
+                        </Label>
+                        <Switch
+                            id="search-injector"
+                            size="sm"
+                            checked={searchInjector}
+                            onCheckedChange={(checked) => {
+                                setSearchInjector(checked);
+                                setSearchInjectorEnabled(checked);
+                            }}
+                        />
+                    </div>
+                    <p className="text-[11px] text-muted-foreground mt-1">
+                        Show matching bookmarks in Google &amp; DuckDuckGo results
+                    </p>
+                </div>
             </div>
         </div>
     );

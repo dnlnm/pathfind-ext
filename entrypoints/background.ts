@@ -97,4 +97,33 @@ export default defineBackground(() => {
       // Silently fail — user can retry
     }
   });
+
+  // Handle messages from content scripts (avoids mixed-content issues)
+  browser.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+    if (message.type === 'searchBookmarks') {
+      (async () => {
+        const { serverUrl, apiToken } = await getServerConfig();
+        if (!serverUrl || !apiToken) {
+          sendResponse({ bookmarks: [] });
+          return;
+        }
+        try {
+          const params = new URLSearchParams({ q: message.query, limit: String(message.limit || 5) });
+          const res = await fetch(`${serverUrl}/api/bookmarks?${params}`, {
+            headers: { Authorization: `Bearer ${apiToken}` },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            sendResponse({ bookmarks: data.bookmarks || [] });
+          } else {
+            sendResponse({ bookmarks: [] });
+          }
+        } catch {
+          sendResponse({ bookmarks: [] });
+        }
+      })();
+      return true; // keeps the message channel open for async sendResponse
+    }
+  });
 });
+
