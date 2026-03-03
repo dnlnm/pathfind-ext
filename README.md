@@ -1,35 +1,49 @@
-# PathFind Browser Extension
+# PathFind Extension
 
-Browser extension for the PathFind bookmark manager. This extension allows you to easily save links to your self-hosted PathFind instance directly from your browser.
+[![WXT](https://img.shields.io/badge/Framework-WXT-blueviolet?style=for-the-badge&logo=wxt)](https://wxt.dev/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-## Features
+The official browser extension for the [PathFind](https://github.com/dnlnm/pathfind) bookmark manager. Save any web page to your self-hosted PathFind instance with just one click.
 
-- **Quick Save (Popup)**: Click the extension icon to quickly save the current tab to your PathFind instance.
-- **Context Menu Integration**: Right-click on any page or link and use the "Save to PathFind" option to save it immediately.
-- **Bookmark Status Indicator**: Displays a visual badge (✓) on the extension icon whenever you visit a URL that is already saved in your PathFind instance.
-- **Custom Configuration**: Setup your custom PathFind Server URL and API Token for seamless integration with your self-hosted instance.
+![PathFind Extension Mockup](pathfind_ext_mockup_1772558550168.png)
 
-## Tech Stack
+---
 
-- [WXT](https://wxt.dev/) - Next-gen Web Extension Framework
-- [React](https://react.dev/) - UI Library
-- [Tailwind CSS](https://tailwindcss.com/) - utility-first CSS framework
-- [Radix UI](https://www.radix-ui.com/) / shadcn-like components - Headless UI primitives
+## 🌐 The PathFind Ecosystem
 
-## Getting Started
+- **[PathFind Web](https://github.com/dnlnm/pathfind)**: The core self-hosted server and dashboard.
+- **[PathFind Extension](https://github.com/dnlnm/pathfind-ext)**: Browser extension for Chrome, Edge, and Firefox.
+- **[PathFind iOS](https://github.com/dnlnm/pathfind-ios)**: Native SwiftUI mobile app for iPhone.
+- **[PathFind Android](https://github.com/dnlnm/pathfind-kt)**: Native Kotlin & Compose mobile app.
+
+---
+
+## ✨ Features
+
+- **🚀 Quick Save**: Clip the current tab instantly via the extension popup.
+- **🖱️ Context Menu**: Right-click on any link or image to save it directly to a specific collection.
+- **✅ Status Indicator**: Visual icon badge indicates if the current URL is already saved in your PathFind instance.
+- **📁 Smart Organization**: Choose collections and add tags directly from the popup.
+- **🔒 Secure**: Connects via personal API tokens generated from your PathFind Settings.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or newer recommended)
-- npm (`npm install`)
+- [Node.js](https://nodejs.org/) (v18 or newer)
+- A running [PathFind](https://github.com/dnlnm/pathfind) instance.
 
 ### Installation
 
-1. Clone the repository and navigate to the extension directory:
+1. Clone the repository:
    ```bash
+   git clone https://github.com/dnlnm/pathfind-ext.git
    cd pathfind-ext
    ```
-2. Install the dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
@@ -38,37 +52,30 @@ Browser extension for the PathFind bookmark manager. This extension allows you t
 
 To start the development server with Hot Module Replacement (HMR):
 
-- For Chrome/Edge/Brave:
-  ```bash
-  npm run dev
-  ```
-- For Firefox:
-  ```bash
-  npm run dev:firefox
-  ```
+- **Chrome/Edge/Brave**: `npm run dev`
+- **Firefox**: `npm run dev:firefox`
 
-### Build and Package
+### Build
 
 To build the extension for production:
 
-- For Chrome:
-  ```bash
-  npm run build
-  ```
-- For Firefox:
-  ```bash
-  npm run build:firefox
-  ```
-
-To create a `.zip` file for web store distribution:
-
-- For Chrome:
-  ```bash
-  npm run zip
-  ```
-- For Firefox:
-  ```bash
-  npm run zip:firefox
-  ```
+- **Chrome**: `npm run build`
+- **Firefox**: `npm run build:firefox`
 
 The packaged files will be available in the `.output` directory.
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework**: [WXT](https://wxt.dev/)
+- **UI Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Components**: [Radix UI](https://www.radix-ui.com/)
+
+---
+
+## 📄 License
+
+MIT © [dnlnm](https://github.com/dnlnm)
+
